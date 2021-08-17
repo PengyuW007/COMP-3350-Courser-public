@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Courser</string>
+    <string name="action_settings">Settings</string>
+    <string name="workspace_b">Workspace</string>
+    <string name="create_schedule">Create Schedule</string>
+    <string name="create_course">New Course</string>
+    <string name="create_section">Add Section</string>
+    <string name="create_lab">Add Lab</string>
+    <string name="finish">Create</string>
+    <!-- Strings used for New Course page -->
+    <string name="course_creation_title">Create New Course</string>
+    <string name="course_name">Course Name</string>
+    <string name="course_code">Course Code</string>
+    <string name="course_department">Department</string>
+    <string name="course_term">Term</string>
+    <string name="course_year">Year</string>
+    <string name="course_credit_hours">Credit Hours</string>
+    <string name="course_name_hint">Software Engineering</string>
+    <string name="course_code_hint">COMP3350</string>
+    <string name="course_department_hint">Computer Science</string>
+    <string name="course_term_hint">Summer</string>
+    <string name="course_year_hint">2021</string>
+    <string name="course_credit_hours_hint">3</string>
+    <!-- Strings used for New Section page -->
+    <string name="section_crn">Section CRN</string>
+    <string name="lab_crn">Lab CRN</string>
+    <string name="section_code">Section Code</string>
+    <string name="lab_code">Lab Code</string>
+    <string name="section_instructor">Instructor</string>
+    <string name="section_ta">TA</string>
+    <string name="section_campus">Campus</string>
+    <string name="section_location">Location</string>
+    <string name="section_date_range">Date Range</string>
+    <string name="section_time_range">Class Time</string>
+    <string name="section_class_times">Class Times</string>
+    <string name="section_lab_times">Lab Times</string>
+    <string name="section_class_monday">Monday</string>
+    <string name="section_class_tuesday">Tuesday</string>
+    <string name="section_class_wednesday">Wednesday</string>
+    <string name="section_class_thursday">Thursday</string>
+    <string name="section_class_friday">Friday</string>
+    <string name="section_crn_hint">1103</string>
+    <string name="section_code_hint">A01</string>
+    <string name="section_instructor_hint">John Braico</string>
+    <string name="section_campus_hint">RL</string>
+    <string name="section_location_hint">Remote</string>
+    <string name="section_date_hint">MM/DD</string>
+    <string name="section_time_hint">HH:MM</string>
+    <string name="section_lab_crn_hint">1495</string>
+    <string name="section_lab_code_hint">B01</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_activity_create_new_lab">CreateNewLab</string>
+    <string name="title_activity_create_new_course">CreateNewCourse</string>
+    <string name="title_activity_create_new_section">CreateNewSection</string>
+    <string name="title_activity_workspace">WorkspaceActivity</string>
+    <string name="done">Done</string>
+
+    <string-array name="course_codes">
+
+    </string-array>
+</resources>

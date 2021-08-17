@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/labCreation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comp3350.courser.presentation.CreateNewLab">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_top_bottom_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_top_bottom_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top">
+
+            <TextView
+                android:id="@+id/courseLectureTitleNewSection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        </FrameLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/sectionLabCRN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_create_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/lab_crn"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sectionLabCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/lab_code"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCRN"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabCRN" />
+
+                <TextView
+                    android:id="@+id/sectionLabInstructor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/section_instructor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCode"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabCode" />
+
+                <TextView
+                    android:id="@+id/sectionLabCampus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/section_campus"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabInstructor"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabInstructor" />
+
+                <TextView
+                    android:id="@+id/sectionLabLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/section_location"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCampus"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabCampus" />
+
+                <TextView
+                    android:id="@+id/sectionLabDateRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/section_date_range"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabLocation"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabLocation" />
+
+                <TextView
+                    android:id="@+id/sectionLabTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:text="@string/section_lab_times"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabDateRange"
+                    app:layout_constraintTop_toBottomOf="@id/sectionLabDateRange" />
+
+                <EditText
+                    android:id="@+id/labCRNField"
+                    android:layout_width="@dimen/activity_insert_default_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:hint="@string/section_lab_crn_hint"
+                    android:inputType="number"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/sectionLabCRN"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCRN" />
+
+                <EditText
+                    android:id="@+id/labCodeField"
+                    android:layout_width="@dimen/activity_insert_default_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="10"
+                    android:hint="@string/section_lab_code_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/sectionLabCode"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCode" />
+
+                <EditText
+                    android:id="@+id/labInstructorField"
+                    android:layout_width="@dimen/activity_insert_default_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="10"
+                    android:hint="@string/section_instructor_hint"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabInstructor"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabInstructor" />
+
+                <EditText
+                    android:id="@+id/labCampusField"
+                    android:layout_width="@dimen/activity_insert_default_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="10"
+                    android:hint="@string/section_campus_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabCampus"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabCampus" />
+
+                <EditText
+                    android:id="@+id/labLocationField"
+                    android:layout_width="@dimen/activity_insert_default_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="10"
+                    android:hint="@string/section_location_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabLocation"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabLocation" />
+
+                <EditText
+                    android:id="@+id/labStartDateField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="10"
+                    android:hint="@string/section_date_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabDateRange"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabDateRange" />
+
+                <EditText
+                    android:id="@+id/labEndDateField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:ems="10"
+                    android:hint="@string/section_date_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabDateRange"
+                    app:layout_constraintStart_toEndOf="@id/labStartDateField" />
+
+                <TextView
+                    android:id="@+id/labDateTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabDateRange"
+                    app:layout_constraintStart_toEndOf="@id/labStartDateField" />
+
+                <TextView
+                    android:id="@+id/labTimeMonday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_distance_margin"
+                    android:ems="5"
+                    android:text="@string/section_class_monday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/sectionLabTimes"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabTimes" />
+
+                <EditText
+                    android:id="@+id/labMondayField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_time_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeMonday"
+                    app:layout_constraintStart_toStartOf="@id/labTimeMonday" />
+
+                <TextView
+                    android:id="@+id/labMondayTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labMondayField"
+                    app:layout_constraintStart_toEndOf="@id/labMondayField" />
+
+                <EditText
+                    android:id="@+id/labMondayEndField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeMonday"
+                    app:layout_constraintStart_toEndOf="@id/labMondayTo" />
+
+                <TextView
+                    android:id="@+id/labTimeTuesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:ems="5"
+                    android:text="@string/section_class_tuesday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/labTimeMonday"
+                    app:layout_constraintTop_toBottomOf="@id/labTimeMonday" />
+
+                <EditText
+                    android:id="@+id/labTuesdayField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_time_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeTuesday"
+                    app:layout_constraintStart_toStartOf="@id/labTimeTuesday" />
+
+                <TextView
+                    android:id="@+id/labTuesdayTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTuesdayField"
+                    app:layout_constraintStart_toEndOf="@id/labTuesdayField" />
+
+                <EditText
+                    android:id="@+id/labTuesdayEndField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTuesdayField"
+                    app:layout_constraintStart_toEndOf="@id/labTuesdayTo" />
+
+                <TextView
+                    android:id="@+id/labTimeWednesday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:ems="5"
+                    android:text="@string/section_class_wednesday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/labTimeTuesday"
+                    app:layout_constraintTop_toBottomOf="@id/labTimeTuesday" />
+
+                <EditText
+                    android:id="@+id/labWednesdayField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_time_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeWednesday"
+                    app:layout_constraintStart_toStartOf="@id/labTimeWednesday" />
+
+                <TextView
+                    android:id="@+id/labWednesdayTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labWednesdayField"
+                    app:layout_constraintStart_toEndOf="@id/labWednesdayField" />
+
+                <EditText
+                    android:id="@+id/labWednesdayEndField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labWednesdayField"
+                    app:layout_constraintStart_toEndOf="@id/labWednesdayTo" />
+
+                <TextView
+                    android:id="@+id/labTimeThursday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:ems="5"
+                    android:text="@string/section_class_thursday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/labTimeWednesday"
+                    app:layout_constraintTop_toBottomOf="@id/labTimeWednesday" />
+
+                <EditText
+                    android:id="@+id/labThursdayField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_time_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeThursday"
+                    app:layout_constraintStart_toStartOf="@id/labTimeThursday" />
+
+                <TextView
+                    android:id="@+id/labThursdayTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labThursdayField"
+                    app:layout_constraintStart_toEndOf="@id/labThursdayField" />
+
+                <EditText
+                    android:id="@+id/labThusrdayEndField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labThursdayField"
+                    app:layout_constraintStart_toEndOf="@id/labThursdayTo" />
+
+                <TextView
+                    android:id="@+id/labTimeFriday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vert_distance_margin"
+                    android:ems="5"
+                    android:text="@string/section_class_friday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintStart_toStartOf="@id/labTimeThursday"
+                    app:layout_constraintTop_toBottomOf="@id/labTimeThursday" />
+
+                <EditText
+                    android:id="@+id/labFridayField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_hoz_time_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labTimeFriday"
+                    app:layout_constraintStart_toStartOf="@id/labTimeFriday" />
+
+                <TextView
+                    android:id="@+id/labFridayTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:text="to"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labFridayField"
+                    app:layout_constraintStart_toEndOf="@id/labFridayField" />
+
+                <EditText
+                    android:id="@+id/labFridayEndField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/to_margin"
+                    android:ems="6"
+                    android:hint="@string/section_time_hint"
+                    android:inputType="text"
+                    app:layout_constraintBaseline_toBaselineOf="@id/labFridayField"
+                    app:layout_constraintStart_toEndOf="@id/labFridayTo" />
+
+                <Button
+                    android:id="@+id/addAnotherSectionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_button_start_margin"
+                    android:layout_marginTop="@dimen/activity_top_bottom_margin"
+                    android:clickable="true"
+                    android:ems="9"
+                    android:foregroundGravity="center"
+                    android:text="@string/create_section"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/sectionLabTimes"
+                    app:layout_constraintTop_toBottomOf="@id/labTimeFriday" />
+
+                <Button
+                    android:id="@+id/addNewLabButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_top_bottom_margin"
+                    android:clickable="true"
+                    android:ems="9"
+                    android:foregroundGravity="left"
+                    android:text="@string/create_lab"
+                    app:layout_constraintBaseline_toBaselineOf="@id/addAnotherSectionButton"
+                    app:layout_constraintStart_toEndOf="@id/addAnotherSectionButton" />
+
+                <Button
+                    android:id="@+id/finishButtonLab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_top_bottom_margin"
+                    android:clickable="true"
+                    android:ems="9"
+                    android:foregroundGravity="right"
+                    android:text="@string/finish"
+                    app:layout_constraintBaseline_toBaselineOf="@id/addNewLabButton"
+                    app:layout_constraintStart_toEndOf="@id/addNewLabButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

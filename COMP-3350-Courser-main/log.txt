@@ -1,0 +1,1093 @@
+###########################################
+#          Structure Implemented          #
+###########################################
+
+Objects
+- Course
+- Date
+- Lab
+- Lecture
+- Schedule
+- Section
+- TimeRange
+- TimeSlot
+- Enum: DayOfWeek
+
+Persistence
+- IPersistenceAccess - The interface used for accessing the persistence layer.
+- PersistenceAccessDB - The implementation of the HSQLDB access.
+
+Business
+- CourseService
+- ScheduleService
+- SectionService
+- TimeSlotService
+- WorkSpaceServices
+
+Presentation
+- MainActivity
+- CreateNewCourse
+- WorkspaceActivity.java
+- CourseAdapter.java
+- activity_create_new_course.XML
+- activity_main.XML
+- activity_workspace.XML
+- content_main.XML
+- course_row.XML
+
+TESTS
+- CourseDB - Used to represent a Course in the stub database.
+- PersistenceAccess - The implementation of the stub access.
+- SectionDB - Used to represent a Section in the stub database.
+- TimeSlotDB - Used to represent a TimeSlot in the stub database.
+
+
+Unit Tests
+- comp3350.courser.tests.business
+    - SectionServiceTest
+    - ScheduleServiceTest
+    - TimeSlotServiceTest
+    - WorkspaceServicesTest
+
+- comp3350.courser.tests.objects
+    - CourseTest
+    - ScheduleTest
+    - SectionTest
+
+Integration Tests
+- Resource Integration Tests
+    - comp3350.courser.tests.persistence
+        - TestCoursePersistence
+        - TestSectionPersistence
+        - TestTimePersistence
+        - TestPersistenceAccess
+- Seam Integration Tests
+    - comp3350.courser.tests.integration
+        - BusinessPersistenceSeamTests
+
+Acceptance Tests
+- src/androidTest/java
+    - comp3350.courser.tests
+        - acceptance
+            - AcceptanceCreateCourseAndLecture
+            - AcceptanceCreateCourseWithLab
+            - AcceptanceViewCourses
+
+
+#####################################
+#          Developer Tasks          #
+#####################################
+OLD (PRE-ITERATION 3)
+Complete:
+- Create method for checking collisions between sections in a Schedule
+    - Assignee: Joshua
+    - Time Estimate: 3 hours
+    - Time Actual: 2 hours
+- Spike - creating a calculation function that creates a list of suggested schedules
+    - Assignee: Joshua
+    - Time Estimate: 2 hours
+    - Time Actual: 1 hour
+- Create a getAllSchedules() function to generate all schedule combinations based on courses.
+    - Assignee: Joshua
+    - Time Estimate: 4 hours
+    - Time Actual: 5 hours
+- Create test for persistence layer.
+	- Assignee: Pengyu
+	- Time Estimate: 3 hours
+	- Time Actual: 15.5 hours
+- Create stub database data structure
+	- Assignee: Nicoli
+	- Time Estimate: 4 hours
+	- Time Actual: 10 hours
+        - Obs: had to restructure once, initial structure has tight coupling
+- Create CourseRepository interface for accessing stub database
+	- Assignee: Nicoli
+	- Time Estimate: 4 hours
+	- Time Actual: 8 hours
+        - Obs: had to refactor because of re-structuring, class renamed PersistenceAccess
+- Add data for stub DB
+	- Assignee: Nicoli
+	- Time Estimate: 2 hours
+	- Time Actual: 3 hours
+        - Obs: had to create extra functions
+- Change Section Object: abstract parent class with Lecture and Lab children
+	- Assignee: Nicoli
+	- Time Estimate: 4 hours
+	- Time Actual: 6 hours
+        - Obs: had to create extra classes and connect everything
+- Review and restructure test for persistence layer.
+	- Assignee: Pengyu and Nicoli (pair-programming)
+	- Time Estimate: 5 hours
+	- Time Actual: 10 hours
+        - Obs: Lots of time spent solving issues with git
+- Create tests for business logic
+    - Assignee: Nikita (Joshua guiding)
+    - Time Estimate: 2 hours
+    - Actual: 13.5 hours
+- Create workspace GUI
+	- Assignee: Shawn
+	- Time Estimate 5 hours
+	- Actual: 20 hours
+- Create interface for persistence layer
+	- Assignee Shawn
+	- Time Estimate: 2
+	- Actual: 4
+- Create implementation for persistence interface using HSQLDB
+	- Assignee Shawn
+	- Time Estimate: 4
+	- Actual: 8
+- Create access layer for DB injection
+	- Assignee Shawn
+	- Time Estimate: 4
+	- Actual: 5
+
+NEW (ITERATION 3)
+Complete:
+    - Create validation on front end for "create course"
+        - Assignee: Joshua
+        - Time Estimate: 6 hours
+        - Time Actual: 5 hours
+    - Create validation on front end for "create lecture"
+        - Assignee: Joshua
+        - Time Estimate: 3 hours
+        - Time Actual: 4 hours
+    - Create front end validation for "create lab"
+        - Assignee: Joshua
+        - Time Estimate: 2 hours
+        - Time Actual: 3.5
+    - Write meeting notes for retrospective
+        - Assignee: Joshua
+        - Time Estimate: 1 hour
+        - Time Actual: 1 hour
+    - Complete white-box testing for business layer
+        - Assignee: Nicoli
+        - Time Estimate: 3 hours
+        - Time Actual:
+    - Unit tests for TimeSlots in the persistence layer
+        - Assignee: Nikita
+        - Time Estimate: 3 hours
+        - Time Actual:
+    - Complete black-box tests for business layer
+        - Assignee: Nicoli
+        - Time Estimate: 4 hours
+        - Time Actual:
+    - Resource integration tests on real DB
+        - Assignee: Nikita
+        - Time Estimate: 2 hours
+        - Time Actual:
+    - Acceptance Test - Add Lab
+        - Assignee: Nicoli
+        - Time Estimate: 3 hours
+        - Time Actual:
+    - Acceptance Test - View Courses
+        - Assignee: Nicoli
+        - Time Estimate: 3 hours
+        - Time Actual:
+    - Acceptance Tests - Add Course/Lecture
+        - Assignee: Nicoli
+        - Time Estimate: 3 hours
+        - Time Actual:
+
+Outstanding:
+    - Unit tests for Sections in the persistence layer
+        - Assignee: Shawn
+        - Time Estimate: 2 hours
+        - Time Actual:
+    - Unit tests for Courses in the persistence layer
+        - Assignee: Shawn
+        - Time Estimate: 2 hours
+        - Time Actual:
+    - Remove setters on objects
+        - Assignee: Shawn
+        - Time Estimate: 0.5 hours
+        - Time Actual:
+    - Update business layer by adding try-catch blocks to every business layer method that calls persistence
+        - Assignee: Shawn
+        - Time Estimate: 2 hours
+        - Time Actual:
+    - Implement view schedules big story in presentation layer
+        - Assignee: Nicoli
+        - Time Estimate: 2 hours
+        - Time Actual:
+    - Acceptance Test - Create Schedule
+        - Assignee: Nicoli
+        - Time Estimate: 2 hours
+        - Time Actual:
+
+
+###################################
+#          Team Meetings          #
+###################################
+Meeting - Friday, May 28, 2021 (12:00 - 12:45)
+    - Itinerary:
+    - Attendance:
+        - Everybody
+    - Minutes:
+        - Discussed dev tasks.
+    - Actions:
+        - Everyone: Go over Nicoli’s task list and change/add to the list if needed.
+        - Joshua: Create development log
+        - Shawn: Look into feasibility of GUI designs
+        - Shawn: Create main project on Android Studio and link to remote repository (https://github.com/JoshuaDueck/COMP-3350-Courser)
+
+Monday, May 31, 2021 (10:30 - 12:00)
+    - Itinerary:
+        - Assign costs to tasks.
+        - Assign tasks to members.
+        - Get local workstation set up.
+        - Discuss git etiquette (how to contribute)
+        - Discuss programming practices
+    - Attendance:
+        - Nicoli
+        - Shawn
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Went over android studio basics of frontend-backend flow.
+            - GUI will be relatively simple to create.
+        - Discussed the structure of our back-end with proposal.
+            - We will have services for the objects which will contain major functionality.
+            - The objects themselves will contain basic accessors and mutators for use in their services and across the project.
+        - Assigned estimates and tasks.
+    - Actions:
+        - See trello board for dev tasks.
+
+Monday, June 7, 2021 (10:30 - 12:00)
+    - Itinerary:
+    - Attendance:
+        - Nicoli
+        - Joshua
+        - Nikita
+    - Minutes:
+        - Discussed command-line git usage.
+        - Assigned more tasks.
+        - Discussed some database methods.
+    - Actions:
+        - See trello board for dev tasks.
+
+Wednesday, June 9, 2021 (10:30 - 12:00)
+    - Itinerary:
+        - Go over work done since the last meeting.
+        - Discuss plans going forward.
+        - Assign new tasks, pull in new tasks.
+    - Attendance:
+        - Everyone.
+    - Minutes:
+        - Discussed representation of objects for Course and Sections.
+            - Course will contain Sections, Sections will either be Lectures or Labs.
+            - Lectures will contain a list of Labs.
+        - Went over pull requests a bit (how to make and review them).
+        - Discussed work for the next week.
+        - Went over GUI proposal
+    - Actions:
+        - See trello board for tasks due by the next meeting.
+        - Shawn: Develop GUI for workspace.
+        - Nicoli: Create stub database with methods for add and get.
+        - Pengyu: Pair with Nicoli on testing stub database.
+        - Joshua: Create a business logic service for creating a list of schedules.
+        - Nikita: Pair with Joshua on business logic.
+
+Monday, June 14, 2021 (10:30 - 12:00)
+    - Itinerary:
+        - Discuss state of iteration 1
+        - Go over requirements for submission
+        - Discuss final adjustments
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Shawn
+        - Joshua
+    - Minutes:
+        - Helped Pengyu with his git setup.
+        - Discussed interface for database.
+        - Created GUI proposal for this iteration
+    - Actions:
+        - Shawn: Finish GUI for workspace & create.
+        - Pengyu: Tests for persistence layer.
+        - Nikita: Tests for business logic.
+        - Joshua: Create the log.
+
+Wednesday, June 16, 2021 (10:30 - 12:00)
+    - Itinerary:
+        - Discuss deliverables.
+        - Discuss final/outstanding tasks.
+    - Attendance:
+        - Everyone.
+    - Minutes:
+        - Determined tasks for finishing deliverable.
+    - Actions:
+        - Everyone: Write personal logs to account for work accomplished. Include time spent!
+        - Nicoli: Create architecture diagram
+        - Nicoli: Create diagram of database
+        - Nicoli: Combine GUI proposals
+        - Shawn: Ensure consistency in code
+        - Joshua: Assemble deliverable
+        - Nikita: Finish tests for ScheduleService
+
+Wednesday, June 23, 2021 (10:00 - 11:00)
+    - Itinerary:
+        - Discuss direction of project.
+        - Discuss structure of project.
+    - Attendance:
+        - Nicoli (9:55 - 10:25)
+        - Shawn (9:45 - 11:00)
+        - Nikita (9:45 - 11:00)
+        - Pengyu (9:45 - 11:00)
+        - Joshua (9:45 - 11:00)
+    - Minutes:
+        - Discussion of flow.
+            - Business will need to query the persistence layer, which will query the database.
+            - The persistence layer can take the fields it gets from the db, then uses that to fill out the fields in an object.
+        - How will business layer services work?
+        - Discussion of objects
+            - Remove setters from the objects.
+        - Decisions:
+            - Workspace will pull complete list of courses from the database (implement SQL database), we will just display all courses in the workspace.
+                - Will display the courses, will be able to click courses, click submit to send courses to business layer where they will be used to create schedules.
+                - Business layer will need a method to turn a list of course IDs to a list of course objects (by calling persistence method getCourseById repeatedly).
+            - Make the "Create course" presentation GUI.
+                - Which will send form data to the business layer, which creates the Course object, then sends it to the persistence layer to enter into the DB.
+    - Actions:
+        - Shawn: make a PR to change names.
+        - Joshua: create CRUD operations in business layer
+        - Pengyu & Nikita: Research HSQLDB, how to add an SQL db to the project, how HSQLDB works.
+
+Friday, June 25, 2021 (9:30 - 12:00)
+    - Itinerary:
+        - Cut/revise some user stories.
+        - Re-evaluate state of user stories.
+        - Split this iteration's user stories into dev tasks and assign them.
+    - Attendance:
+        - Everyone
+    - Minutes:
+        - Discussed passing objects and querying the database.
+            - Persistence layer should send business objects back, with all nested objects as well.
+        - Refactored user stories.
+        - Assigned dev tasks.
+    - Actions:
+        - See Trello for dev tasks.
+
+Wednesday, June 30, 2021 (9:30 - 10:10)
+    - Itinerary:
+        - Discuss the completed tasks and decide on the next tasks
+    - Attendance:
+        - Nicoli
+        - Pengyu
+    - Minutes
+        - Discussed HSQLDB installation into app, and difficulties with this. Next steps will be to bring hurdles to John and ask for help.
+	    - Create New course GUI complete, next steps is connecting it to the Persistence layer through WorkspaceServices class
+        - Meeting Scheduled for Friday, July 2nd, 9:30am
+    - Actions:
+        - Pengyu: Send question of setting hsqldb to professor and learn how to add hsqldb to app in Android Studio
+        - Nicoli: Add today's meeting log, create instance of persistence layer in WorkspaceServices and read input from user from GUI and send it to WorkspaceServices.
+
+Friday, July 2, 2021 (9:30 - 10:40)
+    - Itinerary:
+        - Discuss installing the DB
+        - Discuss interface on the persistence layer
+        - Discuss population of the DB through calls in the presentation layer
+        - Catching errors and sending error messages to the presentation layer
+        - Layout for adding a new course: section and timeslots
+        - Assigning new tasks
+        - Schedule for next week
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Shawn
+        - Joshua
+    - Minutes:
+        - We need a higher degree of communication on PRs.
+        - Validation
+            - Make sure validation sends an error in the presentation layer.
+            - Make sure a message gets displayed to the user somehow.
+        - Installation of the DB
+             - Pengyu will finish by Saturday morning
+        - Nicoli will finish rest of new course layout and the workspace.
+        - Pengyu and Nikita should not be responsible for populating the DB.
+    - Actions:
+        - Tasks on trello
+        - Everybody needs to review PRs!!!
+
+Monday, July 5, 2021 (10:30 - 12:00)
+    - Itinerary:
+        - Tests for the persistence layer that do not exist anymore because the methods don't exist anymore.
+        - Discuss whether we should move PersistenceAccess to the tests folder?
+        - Refactoring of all Service classes in business layer to reflect AccessService and make them static?
+        - Return values for the persistence interface
+    - Attendance:
+        - Nicoli
+        - Shawn
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Nicoli will finish the "create lecture" GUI, but cannot get to adding labs yet.
+            - Could have labs being added on Friday.
+        - Shawn will pull Pengyu and Nikita's work, will merge it with his work.
+        - Nicoli removed tests pertaining to methods that don't exist anymore.
+            - Change the other services to reflect AccessService and change the tests to reflect that.
+        - PersistenceAccess is only used for tests (the stub database is only used for testing).
+            - Let's leave it for last, it's just an organizational thing.
+        - We need to refactor all Service classes to be static. Call AccessService.getDataAccess().
+            - Assigned to Joshua.
+        - The persistence layer will not return an ID on adding an item.
+            - Instead, we will leave that sort of task to the business layer.
+            - Removing this functionality from the persistence layer will require refactoring the stub data (PersistenceAccess).
+                - If we don't have time to refactor this, that's okay for now.
+    - Actions:
+        - Nikita: fix DB pull request.
+        - Nicoli: implement lectures GUI on monday, labs GUI on Friday.
+        - Shawn: pull work from Nikita and Pengyu and ensure that works with the new DB.
+        - Joshua: Finish validation work, refactor services.
+
+Friday, July 9, 2021 (9:30 - 11:15)
+    - Itinerary:
+    - Attendance:
+        - Shawn (9:30 - 11:00)
+        - Nikita
+        - Pengyu
+        - Joshua
+        - Nicoli (9:40 - 11:15)
+    - Minutes:
+        - Presentation will create Course objects, so business layer should be designed to accept these objects.
+        - Take getAllCourses() out of PersistenceAccess, along with all the other logic.
+        - If the Section is a Lecture, it will have -1 as a foreign key for another lecture.
+        - CRNs are not unique between courses/terms. It cannot be used as the ID in the database.
+        - Shawn will merge his PR, then Nikita and Pengyu's PR doesn't need to exist (but we should keep it).
+        - * Re-write stub-database tests to use assertTrue() or assertEquals() instead.
+        - * We need "addLecture"/"addLab"/"addTimeSlot" on the business layer for presentation access.
+        - * Remove logic from persistence layer (and fix the issues that arise as a result).
+        - * Rename createDataAccess(IPersistenceAccess) to "injectDB(IPersistenceAcces)"
+        - * Refactor architecture diagram (Shawn can ask John where it is)
+        - * Delete WorkspaceService().
+    - Actions:
+        - Pengyu & Nikita: Use SC.script to create tables for "Course", "Section", and "TimeSlot".
+            - Create tables with the SC.script (after Shawn determines which script to change).
+            - Populate the tables with a few basic courses (use what is being inserted into the stub database in the open() method)
+        - Shawn: Fix tests to use better assertions (and maybe make them more rigorous), primarily with persistence tests.
+        - Shawn: Submit PR for database organization.
+        - Nicoli: Finish GUI for labs.
+        - Nicoli: Design new architecture diagram.
+        - Nicoli: Help Nikita and Pengyu with the script file (today at 8pm).
+        - Nikita: Add more tests to ScheduleService.
+        - Nikita: Create domain object tests (don't test setters, only test the most important methods/one or two cases for each).
+        - Pengyu: Create AccessService tests.
+        - Joshua: Create addLecture, addLab, addTimeSlot to business layer.
+            - Takes a courseID, and an object, adds the object to the course with that ID, and same for TimeSlot and Section.
+        - Joshua: Validation after Nicoli's PR is merged in.
+        - Joshua: Final cleanup on Monday.
+            - Refactor of structure gets merged in at that point.
+        - After database is finished, we need to discuss pulling logic out of Persistence layer.
+
+Monday, July 12, 2021 (10:30 - 11:15)
+    - Itinerary:
+        - Discuss what needs to be done yet.
+    - Attendance:
+        - Joshua
+        - Nicoli
+        - Pengyu
+    - Minutes:
+        - Discussed what needed to be done:
+            - Ensure tests pass, restructure project, and get DB working
+
+Monday, July 19, 2021 (10:30 - 12:55)
+    - Itinerary:
+        - Post-mortem
+        - Discuss new tasks going forward.
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Shawn
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Retrospective (in Google doc)
+        - Assigning new tasks.
+        - Aim to complete iteration 3 work by Tuesday (July 27th)
+    - Actions:
+        - Tasks on Trello (due by Friday)
+
+Wednesday, July 21, 2021 (10:30 - 11:00)
+    - Itinerary:
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Discuss what is needed for iteration 3
+            - Integration and Acceptance testing (start on Friday).
+    - Actions:
+        - Tasks on Trello (by Friday at 9:30am)
+
+Friday, July 23, 2021 (9:30 - 11:40)
+    - Itinerary:
+        - Assign responsibilities for acceptance and integration testing.
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Nikita (10:55 - 11:40)
+        - Joshua
+    - Minutes:
+        - Discussed and fixed bug with Services.
+        - Discussed tasks for Monday.
+    - Actions (by Monday's meeting):
+        - Nicoli: convert services to non-static.
+        - Nicoli: write acceptance tests.
+        - Nikita: write integration tests for db.
+        - Nikita: finish outstanding tasks on trello (timeslot tests)
+        - Pengyu: write integration seam tests and finish section tests.
+        - Joshua: finish validation for labs.
+        - Joshua: work on retrospective report and other secretary tasks.
+
+Monday, July 26, 2021 (10:30 - 12:25)
+    - Itinerary:
+        - Discuss outstanding questions regarding iteration 3
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Discussed what needs to be tested yet.
+        - Met with John regarding how to get best mark on iteration 3 with low functionality:
+            - Focus on implementing tests, then implement one major user story partially (viewing schedules)
+    - Actions (by Wednesday):
+        - Nicoli: Finish business tests
+        - Nicoli: Acceptance tests on view courses
+        - Nicoli: View schedules user story in presentation
+        - Nicoli: Acceptance tests on add course
+        - Nicoli: Acceptance test on create schedules
+        - Nikita: Add delete methods for persistence layer
+        - Nikita: Fix TimeSlot tests, add more cases.
+        - Nikita: Refactor persistence tests to use the real database (PersistenceAccessDB), and use delete methods.
+        - Pengyu: Finish integration tests for seam between business and persistence (the ones that exercise business methods).
+        - Pengyu: Add one more method to TestSectionPersistence.
+        - Joshua: Be available to support Nikita if need be.
+        - Joshua: Secretarial work (finish logs, readme, revisions to stories, etc.)
+
+Wednesday, July 28, 2021 (10:30 - 11:45)
+    - Itinerary:
+        - Discuss final tasks required.
+    - Attendance:
+        - Nicoli
+        - Pengyu
+        - Nikita
+        - Joshua
+    - Minutes:
+        - Discussed state of tasks.
+        - Discussed who should do sketching.
+            - Josh will update sketches.
+    - Actions:
+        - Same as previous week
+        - Joshua: Update sketch for iteration 3.
+
+Thursday, July 29, 2021 (12:00)
+    - Itinerary:
+        - Package deliverable for iteration 3
+
+
+#########################################
+#          Individual Sessions          #
+#########################################
+- Joshua
+    Iteration 1
+    - Session 1.1: Create collision checking algorithm for Sections.
+        - Time spent: 2 hours.
+        - Work done:
+            - Created collision algorithm for TimeSlot
+            - Created collision algorithm for Section
+            - Added isAfterOrEqual and isBeforeOrEqual on Date object.
+            - Fixed some instances of TimeSlot not being an array in the Lab object.
+            - Fixed some spelling errors in the Section object.
+    - Session 1.2: Spike - look into schedule creation algorithm
+        - Time spent: 1 hours.
+        - Work done:
+            - Investigated algorithm for creating all schedules.
+            - Determined the methods required for this algorithm:
+                - Course.getSections()
+                - Schedule.addSection()
+                - Section.getLabSections()
+    - Session 1.3a: Pairing with Nikita on tests for business objects.
+        - Time spent: 1 hour.
+        - Work done:
+            - Helped Nikita with writing tests for existing business objects and services.
+            - Paired on initial tests.
+    - Session 1.3b: Implementing logic for generating all courses.
+        - Time spent: 5 hours.
+        - Work done:
+            - Added some toString methods to Schedule, Section, TimeRange, and TimeSlot.
+            - Added an equals method to the Section class.
+            - Added an addSectionUnique() method to the Schedule class.
+            - Fixed behavior  of the TimeRange class.
+            - Integrated the getAllSchedules() function in the ScheduleService with the rest of the project.
+    - Session 1.4: Changed structure of Course and Section objects.
+        - Time spent: 1 hour.
+        - Work done:
+            - Added more fields to the Course and Section objects.
+            - Added getters and setters for the Course and Section objects.
+            - Created a Date class.
+    - Session 1.5: Clean up code-base, ensure consistent style.
+        - Time spent: 2 hours.
+        - Work done:
+            - Indentation, variable naming, formatting fixes across the whole project.
+
+    Iteration 2
+    - Session 2.1: Implementing CRUD operations for the services.
+        - Time spent: 1.5 hours.
+        - Work done:
+            - CRUD operations for CourseService.
+    - Session 2.2: Refactoring schedule service.
+        - Time spent: 2.5 hours.
+        - Work done:
+            - Split the generateAllSchedules method into 2 other methods.
+            - Simplified some statements to avoid violating design principles.
+            - Added comments to the test to make the structure clearer, also fixed a small error in one of the tests.
+    - Session 2.3: Create add methods in the Course service and Section service.
+        - Time spent: 4.5 hours
+        - Work done:
+            - Added methods to CourseService and SectionService.
+            - Added required methods to PersistenceAccess.
+            - Debugged tests.
+            - I ran into numerous large-scale issues that I brought up to the team. A lot of time was spent debugging those issues.
+    - Session 2.4: Refactored project structure
+        - Time spent: 2 hours
+        - Work done:
+            - Created structure to mimic the sample project's structure.
+            - Fixed tests, and anything else that was breaking.
+    - Session 2.5: Adding validation and error messages to the course creation GUI.
+        - Time spent: 4 hours
+        - Work done:
+            - Researching front-end error displaying techniques.
+            - Implemented checks for empty values, which sets an error on the text field.
+            - Added an "Alerts" class, to be used for displaying alerts throughout the presentation layer.
+            - Implemented business layer objects to check if course is unique to display an error on presentation.
+            - Since I was waiting on other tasks to be completed, this work was not included in this
+              iteration as the other tasks were completed too late for me to be able to implement this fully.
+    - Session 2.6: Refactoring project structure and final preparations.
+        - Time spent: 6.5 hours
+        - Work done:
+            - Moved all files again.
+            - Dealt with failing tests.
+            - Refactored AccessService.
+            - Updated readme, log, and various other files.
+
+    Iteration 3
+    - Session 3.1: Implementing validation for create course.
+        - Time spent: 1 hour.
+        - Work done:
+            - Finished validation for create course page.
+            - Wrote tests for CourseService.isUnique()
+    - Session 3.2: Implementing validation for create new section.
+        - Time spent: 4 hours.
+        - Work done:
+            - Finished validation for create new section.
+            - Wrote test for SectionService.isUnique() -- Stuck on a bug.
+    - Session 3.3: Created Validator class in presentation layer
+        - Time spent: 2 hours.
+        - Work done:
+            - Moved validation into Validator class.
+    - Session 3.4: Added validation to the add lab activity.
+        - Time spent: 1.5 hours.
+        - Work done:
+            - Added validation to add lab fields.
+            - Debugged intent passing on create lab from create lab screen.
+    - Session 3.5: Wrote retrospective write-up.
+        - Time spent: 1 hour.
+        - Work done:
+            - Wrote write up for retrospective meeting.
+    - Session 3.6: Convert all default IDs to use null.
+        - Time spent: 1 hour.
+        - Work done:
+            - Went through and tried to find all instances of "-1" or "" being used as IDs and set them to null instead.
+            - Fixed tests that broke because of this.
+    - Session 3.7: Work on log, readme, dev tasks, and user stories
+        - Time spent: 1 hour.
+        - Work done:
+            - Re-evaluated user stories for end of iteration to update the log.
+    - Session 3.8: Work on final preparations
+        - Time spent: 5 hours.
+        - Work done:
+            - Re-designed the architecture diagram.
+            - Worked on issues with PRs.
+            - Finalized user stories, dev tasks, and functionality.
+            - Finalized log and readme.
+
+- Pengyu
+     Iteration 1
+	    - Session 1: Familiarize and prepare for writing tests for the persistence layer
+		    - Time spent: 5 hours
+            - Work done:
+                - Understand the persistence part made by teammate.
+                - Create a structure / classes what I was going to test.
+	    - Session 2: Test Persistence layers
+		    - Session 2a: Test Persistence Access
+			    - Time spent: 0.5 hour
+                - Work done:
+                    - Test constructor of Persistence Access
+		- Session 2b: Test Course Persistence
+			- Time spent: 2 hours
+            - Work done:
+                - Test add, update, delete and getCourseID
+                - Found some issues of delete part
+		- Session 2c: Test Section Persistence
+			- Time spent: 1.5 hours
+            - Work done:
+                - Test add, update
+                - Found some issues of Section part
+		- Session 2d: Test Time Persistence
+			- Time spent: 0.5 hour
+            - Work done:
+                - Found some issues of Time part
+	    - Session 3: Pair-programming with Nicoli
+		    - Time spent: 6 hours
+            - Work done:
+                - Fixed most issues of course, section and time
+
+     Iteration 2
+        - Session 1: Create database setup routine
+            - Time spent: 1 week
+            - Work done:
+                - Look at some samples of database's commands/ Look at the sample project
+                - Installing " hsqldb"
+        - Session 2: Create tables for objects in SQL
+            - Time spent: 4 hours
+            - Work done:
+                - Course/Section/ Timeslot, structure is on the DB in the persistence layer.
+                    - Finished db.script with Nikita
+                - Got helps from teammates, like explaining commands of SQL
+                - Insertions of tables
+
+     Iteration 3
+        - Session 1: Add more tests for section in persistence layer
+            - Time spent: 8 hours
+            - Work done:
+                - Create more tests for section in persistence layer
+       - Session 2: Seam tests for Business and persistence layer
+            - Time spent: 7 hours
+            - Work done:
+                - Watch again the video of seam tests
+                - Learn and ask the differences between seam and unit tests
+                - Build structure of stories of seam tests
+                - Wrote seam tests, of 3 services
+
+- Nikita
+	- Session 1: Pair-programming with Joshua
+		- Time spent: 6 hours
+	    - Work done:
+		    - Wrote the tests for SectionService
+		    - Familiarized myself with code
+	- Session 2: Fixed minor bugs and issues in SectionServiceTest
+		- Time spent: 2 hours
+	    - Work done:
+		    - Based on feedback from the team fixed bugs and issues in SectionServiceTest
+	- Session 3: Wrote the tests for TimeSlotService
+		- Time spent: 1.5 hours
+	    - Work done:
+		    - Wrote tests for TimeSlotService
+		    - Fixed more minor bugs in SectionServiceTest
+	- Session 4: Wrote tests for ScheduleService
+		- Time spent: 4 hours
+	    - Work done:
+		    - Wrote tests for ScheduleService
+		    - Found some bugs in ScheduleService
+	- Session 5: Made AllTests.java
+		- Time spent: 1.5 hours
+	    - Work done:
+	    	- Found out how to write AllTests
+		    - Wrote AllTests
+	- Session 6: DB initialization
+	    - Time spent: 3 hours
+	    -Work done:
+	        - Find out how to work with DB
+	        - Created and initialized DB in it's own file
+	- Session 7: Work on DB with Nicoli and Pengyu
+	    - Time spent: 3 hours
+	    - Work done:
+	        - Found out how to work with DB through script
+	        - Initialized DB through script
+	- Session 8: TimeSlot.java refactory
+	    - Time spent: 2 hours
+	    - Work done:
+	        - Refactored TimeSlot class to better reflect time_slot table from DB
+	        - Refactored toString
+	        - Fixed all tests to reflect new TimeSlot constructor
+	- Session 9: Small TimeSlot refactory(once again)
+	    - Time spent: 1 hour
+	    - Work done:
+	        - Based on a feedback from team, added some changes to TimeSlot
+	        - TimeSlot now works with DayOfWeek instead of String
+	        - Refactored all tests and files for the new constructor
+	- Session 10: Adding delete methods to Presistence:
+	    - Time spent: 2 hours
+	    - Work done:
+	        - Added delete methods for real DB
+	        - Added delete methods for stub DB
+	        - Updated IPersistenceAccess to contain these methods
+	- Session 11: Resource integration tests + small fix on Persistence delete methods
+	    - Time spent: 4 hours
+	    - Work done:
+	        - Minor (but very hard to track) bug in PersistenceAccessDB is fixed
+	        - Added tests on real DB in Persistence tests with ability to switch between real DB and a stub
+
+
+- Nicoli
+	- Session 1: Created initial proposal for db structure and GUI
+		- Time spent: 2 hours
+		- Work Done:
+			- PDF file with drawings that represented the user interaction with the GUI
+			- DB table structure
+			- Persistence methods for data access
+	- Session 2: Created initial Persistence structure
+		- Time Spent: 4 hours
+		- Work Done:
+			- Created application package
+			- Created persistence package
+			- Created Class CoursePersistence
+	- Session 3a: Changes in Object to reflect best practices and observations on Aurora
+		- Time Spent: 4 hours
+		- Work Done:
+			- Changed objects.Course: using new classes
+			- Changed objects.Section to be abstract and concrete be Lab and Lecture
+			- Created objects.Lab
+			- Created objects.Lecture
+			- Created objects.DayOfWeek
+			- Created objects.TimeRange
+			- Created objects.TimeSlot
+	- Session 3b: Additional changes to objects, functions and formatting
+		- Time Spent: 2 hours
+		- Work Done:
+			- Changed objects.Course: 2 new method
+			- Changed objects.Section: 1 new method
+	- Session 4: Restructured Persistence Layer
+		- Time Spent: 6 hours
+		- Work Done:
+			- Created PersistenceAccess
+			- Made CoursePersistence abstract
+			- Organized calls between them for access to persistence only through PersistenceAccess
+	- Session 5a: Tests for Persistence Pair programming
+		- Time Spent: 6 hours
+		- Work Done:
+			- Pair programming session with Pengyu
+			- Reviewed all Tests
+			- Refactored all Tests
+			- Changed CoursePersistence to not be abstract but protected
+			- Changed PersistenceAccess to be a kind of interface for the persistence layer
+	- Session 5b: Tests for Persistence final tests
+		- Time Spent: 3 hours
+		- Work Done:
+			- fixed git conflicts (most of time)
+			- finished tests for TestTimePersistence 
+	- Session 6: Clean Up Presentation Layer
+		- Time Spent: 2.5 hours
+		- Work Done:
+			- removed res>layouts not needed
+			- changed connections on buttons to make navigation work with new structure
+			- changed layout structure for activity_main.xml
+	- Session 7: Refactoring Stub Database
+		- Time Spent: 4 hours
+		- Work Done:
+			- changed Persistence Interface to attend to some of the stub DB needs
+			- merged PersistenceAccess and CoursePersistence
+			- made PersistenceAccess implement Interface
+			- fixed testes and some Services to call new interface 	
+			- small fix into Course object
+	- Session 8: Add Course access way through business layer
+		- Time Spent: 1.5 hours
+		- Work Done:
+			- changed CourseService to call getDataAccess and send info to persistence layer
+			- removed method in WorkspaceService getAllCourses() and changed all references to it to use COurseService getCourses() instead
+			-refactored WorkspaceServiceTests to match new AccessService and CourseService
+			-refactored AccessService and CourseService to use persistence Interface
+	- Session 9: Create Sections (Lecture) GUI
+		- Time Spent: 6 hours
+		- Work Done:
+			- created view create section
+			- Added layout to manifest
+			- created dimens and strings for layout
+			- created and linked buttons
+	- Session 10: Help Create Script for DB
+		- Time Spent: "2" hours
+		- Work Done:
+			- tutored and answered questions to Pengyu and Nikita on how to write SQL script to create tables and populate the DB
+	- Session 11: Create Sections (Lab) GUI
+		- Time Spent: 2.5 hours
+		- Work Done:
+			- Added GUI XML for new Lab
+			- Created logic to add new lab
+			- added new GUI to manifest
+			- created new respective constant strings under res>values
+	- Session 12: Adjust Database Script
+		- Time Spent: 1 hours
+		- Work Done:
+			- Added, fixed and removed commands from script
+	- Session 13: Debug Script
+		- Time Spent: 7 hours
+		- Work Done:
+			- Tried to find root cause of DB error and tried to find solutions for auto-increment error
+	- Session 14: Implement Solution to DB error and debug code
+		- Time Spent: 8 hours
+		- Work Done:
+			- Change name of script file for it to be recognized
+			- change script: remove IDENTITY keyword
+			- change script: make PK concatenated string field
+			- change script: change double quotes to single quotes
+			- change script: remove outliers from current acceptable entries on DB
+			- change script: make lectureId nullable
+			- change AccessService instance of IPersistenceAccess in createDataAccess(String dbName)
+			- Update Persistence Interface
+			- Update Persistence Implementation and stub implementation
+			- Update Business methods
+			- Update Presentation Calls and private methods
+			- Update tests
+			- fix SQL commands in DB: correct columns names
+			- fix SQL commands in DB: use quotes when adding strings
+			- fix SQL commands in DB: remove commas and add spaces and an extra column in addLecture
+			- change SQL commands in DB: make lectureId null instead of -1
+	- Session 15: Refactor Services to not be static
+		- Time Spent: 1 hour
+		- Work Done:
+			- Change CourseService, SectionService, ScheduleService and TimeSlotService  to not be static
+			- fix CreateNewCourse, CreateNewLab and tests to reflect changes
+			- make SectionServiceTest use AccessService close-create-close in every test
+	- Session 16: New method for Persistence Layer
+		- Time Spent: 1 hour
+		- Work Done:
+			- Added getTimeSlots to Interface, stub and read database
+			- waiting to add tests.
+	- Session 17: Tests to getAllCourses, getLectures and getLabs in Business Layer
+		- Time Spent: 3 hours
+		- Work Done:
+			- Change name of getCourses to getCoursesList
+			- add getCourseId to business layer
+			- tests for getAllCourses, getLectures and getLabs      
+	- Session 19: Install Espresso and Learn to write Acceptance tests in Android
+		- Time Spent: 8 hours
+		- Work Done:
+			- Study the setup
+			- Fix Graddle
+			- Install Espresso
+			- Study how to run Acceptance Tests
+			- Create "Hello World" for Acceptance Tests
+	- Session 20: Acceptance Test - View Courses Big Story
+		- Time Spent: 5 hours
+		- Work Done:
+			- Install espresso.contrib to be able to access view actions for the Recycler view on Workspace.
+			- Create Classes RecyclerClickOnView, RecycerViewMatcher TestUtils to be able to access items inside RecyclerView on WorkspaceActivity
+			-Write Tests on Workspace and MainActivity
+	- Session 21: Acceptance Test - Create Course and Lecture Big Story
+		- Time Spent: 5 hours
+		- Work Done:
+			-Write Tests on following script
+	- Session 22: Acceptance Test - Create Course With Lab Big Story
+		- Time Spent: 2.5 hours
+		- Work Done:
+			-Write Tests on following script
+	 Session 23: Final Fixes and submission
+		- Time Spent: 3.5 hours
+		- Work Done:
+			- add backupt scripts
+			- move stub db  to tests
+			- fix and add to sectionPersistence Tests
+			- Allow AccessService to run on stub or Real database
+			- order insertions on script to allow for sequential runs
+
+
+- Shawn
+Objects
+	- Session 1: Create Objects
+		- Time spent: 2 hour
+		- Work Done:
+			- Create Course and Schedule objects with validations for fields (not implemented for this iteration)			- 
+GUI
+	- Session 2: Create the workspace GUI
+		- Time spent: 3 hours
+		- Work Done:
+			- Create activity_workspace.XML using relative layout and listview
+			- Create workspaceActivity.java using listview to display static list of strings
+	- Session 3: Create the workspace GUI
+		- Time spent: 2 hours
+		- Work Done:
+			- Modify activity_workspace.XML and workspaceActivity.java to display a dynamic list of strings with checkboxes
+	- Session 4: Create the workspace GUI
+		- Time spent: 3 hours
+		- Work Done:
+			- Modify activity_workspace.XML and workspaceActivity.java to use recyclerView to display dynamic list of strings
+	- Session 5: Create the workspace GUI
+		- Time spent: 8 hours
+		- Work Done:
+			- Create a custom adapter class to inflate a dynamic list of objects
+			- Create cardview to display seperate fields of the objects
+	- Session 6: Create the workspace GUI
+		- Time spent: 2 hours
+		- Work Done:
+			- Modify workSpaceAcivity and customAdapter to accept and display an ArrayList of Course objects from the DB 
+			- Create WorspaceServices to connect presentation to database and made tests for it.
+Persistence
+	- Session 7: Create Persistence Interface
+		- Time spent: 4 hours
+		- Work Done:
+			- Consider architecture of methods
+			- Write Abstract Methods
+	- Session 8: Implement Persistence Interface for SQL DB
+		- Time spent: 8 hours
+		- Work Done:
+			- Did not realize the sample project had an access layer and methods in home activity, spent extra time learning how to set up JDBC and HSQLDB
+			- Write Methods
+	- Session 9: Create Access Layer
+		- Time spent: 5 hours
+		- Work Done:
+			- Did not realize the sample project had an access layer and methods in home activity, spent extra time learning how to set up JDBC and HSQLDB
+			- Write methods in accessServices and mainActivity
+	- Session 10: Fix tests 
+		- Time spent 2 hours
+		- Work Done:
+			- Fix tests in persistence layer
+
+
+######################################
+#          Outstanding Bugs          #
+######################################
+- Outstanding bugs:
+    - Acceptance tests will fail if run all at once. If you run individual tests again,
+      they will pass. See remarks for more.
+
+
+##################################
+#          User Stories          #
+##################################
+DONE:
+    - BIG STORY: View all available courses
+        - SMALL STORY: I want to select and deselect courses to consider in the schedule creation process.
+    - BIG STORY: I want to be able to create a new course
+        - SMALL STORY: I want to be able to create a lecture.
+        - SMALL STORY: I want to be able to create a lab section.
+
+UNFINISHED:
+    - BIG STORY: Schedule options
+        - SMALL STORY: I want to view a list of all valid schedules for my selected courses.
+        - SMALL STORY: I want to be able to get a final list of CRNs from the course section featured on my schedule.
+    - BIG STORY: Modify an individual course
+        - SMALL STORY: I want to be able to modify/delete an existing course lecture.
+        - SMALL STORY: I want to be able to modify/delete an existing lab section
+    - BIG STORY: As a student I want to be able to filter/sort schedules by certain criteria.
+
+
+#############################
+#          Remarks          #
+#############################
+- The Acceptance tests are fragile, so when you run all of them at once they do break, but if you re-run
+the test that failed it will run. At this point the if one of the acceptance tests fails and they must
+be re-run, the data from the simulator must be erased and then the tests can be re-run. Because we
+cannot delete the courses we add during the tests.
+- To wipe simulator data:
+    1. Go to the AVD manager, find the virtual device you are using to run the tests.
+    2. In Actions, select the down arrow that represents more actions
+    3. In the drop down menu select "Wipe Data". The simulator must be closed for the data to be wiped.
+
+- If there is any corruption or modification made to the script file (database/Courser.script),
+  copy the Courser.script (in the root repo directory) and replace Courser.script in the database directory with that duplicate.
+
+- We included code that we found from other sources when it comes to our acceptance tests. These sources are found below:
+    - TestUtils: https://github.com/dannyroa/espresso-samples/tree/master/RecyclerView/app/src/androidTest/java/com/dannyroa/espresso_samples/recyclerview
+    - RecyclerViewMatcher: https://github.com/dannyroa/espresso-samples/tree/master/RecyclerView/app/src/androidTest/java/com/dannyroa/espresso_samples/recyclerview
+    - ReclyclerClickOnView: https://stackoverflow.com/questions/28476507/using-espresso-to-click-view-inside-recyclerview-item

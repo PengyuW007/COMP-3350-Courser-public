@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/courseCreation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="comp3350.courser.presentation.CreateNewCourse">
+
+    <TextView
+        android:id="@+id/courseCreationTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/course_creation_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/courseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/course_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/courseCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vert_distance_margin"
+        android:text="@string/course_code"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/courseName"
+        app:layout_constraintTop_toBottomOf="@+id/courseName" />
+
+    <TextView
+        android:id="@+id/courseTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/course_term"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/courseCode"
+        app:layout_constraintTop_toBottomOf="@+id/courseCode" />
+
+    <TextView
+        android:id="@+id/courseYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/course_year"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/courseTerm"
+        app:layout_constraintTop_toBottomOf="@+id/courseTerm" />
+
+    <TextView
+        android:id="@+id/courseDepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/course_department"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/courseYear"
+        app:layout_constraintTop_toBottomOf="@+id/courseYear" />
+
+    <TextView
+        android:id="@+id/courseCreditHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/course_credit_hours"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="@+id/courseDepartment"
+        app:layout_constraintTop_toBottomOf="@+id/courseDepartment" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseNameField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_name_hint"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseName"
+        app:layout_constraintStart_toStartOf="@+id/courseName" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseCodeField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_code_hint"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseCode"
+        app:layout_constraintStart_toStartOf="@+id/courseCode" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseTermField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_term_hint"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseTerm"
+        app:layout_constraintStart_toStartOf="@+id/courseTerm" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseYearField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_year_hint"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseYear"
+        app:layout_constraintStart_toStartOf="@+id/courseYear" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseDepartmentField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_department_hint"
+        android:inputType="text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseDepartment"
+        app:layout_constraintStart_toStartOf="@+id/courseDepartment" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/courseCreditHoursField"
+        android:layout_width="456dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:hint="@string/course_credit_hours_hint"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/courseCreditHours"
+        app:layout_constraintStart_toStartOf="@+id/courseCreditHours" />
+
+    <Button
+        android:id="@+id/addSectionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="9"
+        android:text="@string/create_section"
+        app:layout_constraintEnd_toEndOf="@+id/courseCreditHoursField"
+        app:layout_constraintTop_toBottomOf="@+id/courseCreditHoursField" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
